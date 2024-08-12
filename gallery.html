@@ -44,5 +44,18 @@
         <p>&copy; 2024 AMOA Youth Organization. All Rights Reserved.</p>
     </footer>
 </body>
+<script>
+    document.addEventListener('scroll', function() {
+        const footer = document.querySelector('footer');
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const documentHeight = document.documentElement.offsetHeight;
+
+        if (scrollPosition >= documentHeight) {
+            footer.classList.add('show');
+        } else {
+            footer.classList.remove('show');
+        }
+    });
+</script>
 
 </html>

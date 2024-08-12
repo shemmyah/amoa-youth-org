@@ -7,6 +7,52 @@
     <title>Gallery - AMOA Youth Organization</title>
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+        /* Lightbox (Popup) Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 10;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 80%;
+            border-radius: 10px;
+        }
+
+        .close, .prev, .next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 30px;
+            color: #fff;
+            cursor: pointer;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .close {
+            top: 20px;
+            right: 30px;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -17,8 +63,6 @@
         <h1>AMOA Youth Organization</h1>
         <p>Empowering Youth, Shaping the Future</p>
     </header>
-    
-    
 
     <nav>
         <a href="index.html">Home</a>
@@ -32,31 +76,95 @@
     <main>
         <h2>Gallery</h2>
         <div class="gallery">
-            <img src="images/gallery1.jpg" alt="Gallery Image 1">
-            <img src="images/gallery2.jpg" alt="Gallery Image 2">
-            <img src="images/gallery3.jpg" alt="Gallery Image 3">
-            <img src="images/gallery4.jpg" alt="Gallery Image 4">
-            <img src="images/gallery5.jpg" alt="Gallery Image 5">
-            <img src="images/gallery6.jpg" alt="Gallery Image 6">
+            <img src="images/gallery1.jpg" alt="Gallery Image 1" class="gallery-item">
+            <img src="images/gallery2.jpg" alt="Gallery Image 2" class="gallery-item">
+            <img src="images/gallery3.jpg" alt="Gallery Image 3" class="gallery-item">
+            <img src="images/gallery4.jpg" alt="Gallery Image 4" class="gallery-item">
+            <img src="images/gallery5.jpg" alt="Gallery Image 5" class="gallery-item">
+            <img src="images/gallery6.jpg" alt="Gallery Image 6" class="gallery-item">
+        </div>
+
+        <!-- Popup -->
+        <div id="lightbox" class="lightbox">
+            <span class="close">&times;</span>
+            <span class="prev">&#10094;</span>
+            <img class="lightbox-content" id="lightbox-img">
+            <span class="next">&#10095;</span>
         </div>
     </main>
 
     <footer>
         <p>&copy; 2024 AMOA Youth Organization. All Rights Reserved.</p>
     </footer>
-</body>
-<script>
-    document.addEventListener('scroll', function() {
-        const footer = document.querySelector('footer');
-        const scrollPosition = window.innerHeight + window.scrollY;
-        const documentHeight = document.documentElement.offsetHeight;
 
-        if (scrollPosition >= documentHeight) {
-            footer.classList.add('show');
-        } else {
-            footer.classList.remove('show');
+    <script>
+        // Get the lightbox elements
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const close = document.querySelector('.close');
+        const prev = document.querySelector('.prev');
+        const next = document.querySelector('.next');
+
+        // Array to store all gallery images
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        let currentIndex = 0;
+
+        // Function to open the lightbox with the clicked image
+        function openLightbox(event, index) {
+            lightbox.style.display = 'flex';
+            lightboxImg.src = event.target.src;
+            currentIndex = index;
         }
-    });
-</script>
+
+        // Function to close the lightbox
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+        }
+
+        // Function to show the previous image
+        function showPrevImage() {
+            currentIndex = (currentIndex === 0) ? galleryItems.length - 1 : currentIndex - 1;
+            lightboxImg.src = galleryItems[currentIndex].src;
+        }
+
+        // Function to show the next image
+        function showNextImage() {
+            currentIndex = (currentIndex === galleryItems.length - 1) ? 0 : currentIndex + 1;
+            lightboxImg.src = galleryItems[currentIndex].src;
+        }
+
+        // Add event listeners to gallery images
+        galleryItems.forEach((item, index) => {
+            item.addEventListener('click', (event) => openLightbox(event, index));
+        });
+
+        // Add event listener to close button
+        close.addEventListener('click', closeLightbox);
+
+        // Add event listeners to navigation buttons
+        prev.addEventListener('click', showPrevImage);
+        next.addEventListener('click', showNextImage);
+
+        // Close the lightbox when clicking outside the image
+        lightbox.addEventListener('click', (event) => {
+            if (event.target === lightbox || event.target === close) {
+                closeLightbox();
+            }
+        });
+
+        // Footer scroll effect
+        document.addEventListener('scroll', function() {
+            const footer = document.querySelector('footer');
+            const scrollPosition = window.innerHeight + window.scrollY;
+            const documentHeight = document.documentElement.offsetHeight;
+
+            if (scrollPosition >= documentHeight) {
+                footer.classList.add('show');
+            } else {
+                footer.classList.remove('show');
+            }
+        });
+    </script>
+</body>
 
 </html>

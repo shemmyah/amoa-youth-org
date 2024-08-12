@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | AMOA Youth Organization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="AMOA Logo">
+        </div>
+        <h1>AMOA Youth Organization</h1>
+        <p>Empowering Youth, Shaping the Future</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <section>
+            <h2>Welcome to AMOA Youth Organization</h2>
+            <p>
+                At AMOA Youth Organization, we believe in the power of youth to shape a brighter future. Since our inception, we have been dedicated to creating opportunities for young people to grow, learn, and lead. Our diverse programs are designed to inspire and empower the next generation, equipping them with the skills and confidence to make a positive impact in their communities.
+            </p>
+        </section>
+
+        <section>
+            <h2>Featured Programs</h2>
+            <div class="programs">
+                <div class="program">
+                    <h3>Leadership Development</h3>
+                    <p>
+                        Our leadership development program is designed to help young people build essential skills such as public speaking, teamwork, and strategic thinking. Through workshops and hands-on experiences, participants gain the confidence to lead and make a difference.
+                    </p>
+                    <a href="programs.html" class="btn">Learn More</a>
+                </div>
+                <div class="program">
+                    <h3>Community Service</h3>
+                    <p>
+                        Get involved in our community service initiatives that aim to support local causes and make a tangible impact. From organizing charity events to participating in environmental clean-ups, there are many ways to contribute.
+                    </p>
+                    <a href="programs.html" class="btn">Learn More</a>
+                </div>
+                <div class="program">
+                    <h3>Workshops and Seminars</h3>
+                    <p>
+                        Our workshops and seminars cover a range of topics from career development to personal growth. These events are led by experts and provide valuable insights and practical skills for young people.
+                    </p>
+                    <a href="programs.html" class="btn">Learn More</a>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Upcoming Events</h2>
+            <ul class="events">
+                <li>
+                    <h4>Annual Fundraiser Gala</h4>
+                    <p>Date: September 15, 2024</p>
+                    <p>Join us for our annual fundraiser gala to support our programs and celebrate the achievements of our youth.</p>
+                    <a href="events.html" class="btn">View Details</a>
+                </li>
+                <li>
+                    <h4>Youth Leadership Conference</h4>
+                    <p>Date: October 22, 2024</p>
+                    <p>A day-long conference featuring keynote speakers and interactive workshops focused on leadership skills and career development.</p>
+                    <a href="events.html" class="btn">View Details</a>
+                </li>
+                <li>
+                    <h4>Community Clean-Up Day</h4>
+                    <p>Date: November 5, 2024</p>
+                    <p>Come out and help us beautify our community with a day of environmental stewardship and teamwork.</p>
+                    <a href="events.html" class="btn">View Details</a>
+                </li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Success Stories</h2>
+            <div class="success-stories">
+                <div class="story">
+                    <img src="images/story1.jpg" alt="Success Story 1">
+                    <h3>Giles Canque - Leadership Award Winner</h3>
+                    <p>
+                        "AMOA Youth Organization helped me develop my leadership skills and gave me the confidence to pursue my dreams. The support and opportunities provided were invaluable."
+                    </p>
+                </div>
+                <div class="story">
+                    <img src="images/story2.jpg" alt="Success Story 2">
+                    <h3>Carmelo Canque - Community Service Champion</h3>
+                    <p>
+                        "Participating in the community service program opened my eyes to the impact we can have on our surroundings. It was a rewarding experience that I will always cherish."
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>Get Involved</h2>
+            <p>
+                We welcome support from individuals and organizations who are passionate about making a difference. Whether you want to volunteer your time, make a donation, or partner with us, there are many ways to get involved and contribute to our mission.
+            </p>
+            <a href="contact.html" class="btn">Get Involved</a>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AMOA Youth Organization. All Rights Reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener('scroll', function() {
+        const footer = document.querySelector('footer');
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const documentHeight = document.documentElement.offsetHeight;
+
+        if (scrollPosition >= documentHeight) {
+            footer.classList.add('show');
+        } else {
+            footer.classList.remove('show');
+        }
+    });
+</script>
+
+
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | AMOA Youth Organization</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="images/logo.png" alt="AMOA Logo">
+        </div>
+        <h1>AMOA Youth Organization</h1>
+        <p>Empowering Youth, Shaping the Future</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About Us</a>
+        <a href="programs.html">Programs</a>
+        <a href="events.html">Events</a>
+        <a href="gallery.html">Gallery</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+
+    <main>
+        <h2>About Us</h2>
+        <section>
+            <h3>Our Mission</h3>
+            <p>
+                The AMOA Youth Organization is dedicated to empowering young people through a range of educational and community initiatives. Our mission is to foster leadership, creativity, and a sense of community among youth, helping them realize their full potential.
+            </p>
+        </section>
+
+        <section>
+            <h3>Our Team</h3>
+            <div class="team">
+                <div class="team-member">
+                    <img src="images/president.jpg" alt="President">
+                    <h4>President</h4>
+                    <p>Giles Canque</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/vice-president.jpg" alt="Vice President">
+                    <h4>Vice President</h4>
+                    <p>Jay Gabriento</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/secretary.jpg" alt="Secretary">
+                    <h4>Secretary</h4>
+                    <p>Decken Calderon</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/treasurer.jpg" alt="Treasurer">
+                    <h4>Treasurer</h4>
+                    <p>Chermel Pepito</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/auditor.jpg" alt="Auditor1">
+                    <h4>Auditors</h4>
+                    <p>Princess Durano</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/auditor.jpg" alt="Auditor2">
+                    <h4>Auditors</h4>
+                    <p>Vince Canque</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/sports-committee.jpg" alt="Sports Committee Chairman">
+                    <h4>Sports Committee Chairman</h4>
+                    <p>Lancelew Garcia</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/sports-committee.jpg" alt="Sports Committee Assistant">
+                    <h4>Sports Committee Assistant</h4>
+                    <p>Aloysius Garcia</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/pio.jpg" alt="PIO1">
+                    <h4>PIO</h4>
+                    <p>France Chavez</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/pio.jpg" alt="PIO2">
+                    <h4>PIO</h4>
+                    <p>Shem de los Reyes</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/pio.jpg" alt="PIO3">
+                    <h4>PIO</h4>
+                    <p>Nina Puebla</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/pro.jpg" alt="PRO1">
+                    <h4>PRO</h4>
+                    <p>Seanchris Garcia</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/pro.jpg" alt="PRO2">
+                    <h4>PRO</h4>
+                    <p>Karlo Andaya</p>
+                </div>
+                <div class="team-member">
+                    <img src="images/pro.jpg" alt="PRO3">
+                    <h4>PRO</h4>
+                    <p>Carmelo Canque</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h3>Contact Us</h3>
+            <p>
+                For more information about our organization, please reach out to us at our <a href="https://www.facebook.com/profile.php?id=61563942009546"> facebook page</a>.
+            </p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 AMOA Youth Organization. All Rights Reserved.</p>
+    </footer>
+</body>
+<script>
+    document.addEventListener('scroll', function() {
+        const footer = document.querySelector('footer');
+        const scrollPosition = window.innerHeight + window.scrollY;
+        const documentHeight = document.documentElement.offsetHeight;
+
+        if (scrollPosition >= documentHeight) {
+            footer.classList.add('show');
+        } else {
+            footer.classList.remove('show');
+        }
+    });
+</script>
+</html>

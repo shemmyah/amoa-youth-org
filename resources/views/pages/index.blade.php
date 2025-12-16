@@ -34,8 +34,18 @@
                 </p>
             </div>
             <div class="col-md-6 text-center">
-                <i class="fa-solid fa-people-group fa-6x text-success"></i>
+                <div class="position-relative d-inline-block">
+                    <img src="{{ asset('images/team.jpg') }}" alt="amoa youth" class="img-fluid rounded shadow-lg"
+                        style="max-height: 400px; object-fit: cover; border: 5px solid #f0f0f0;">
+
+                    {{-- Optional overlay text --}}
+                    <div class="position-absolute bottom-0 start-50 translate-middle text-white fw-bold fs-4"
+                        style="text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">
+                        Meet Our Team
+                    </div>
+                </div>
             </div>
+
         </div>
     </section>
 
@@ -75,38 +85,34 @@
         </div>
     </section>
 
-    <section id="events" class="py-5" data-aos="fade-up">
-        <h2 class="fw-bold text-center mb-4">Upcoming Activities</h2>
+    @if ($upcoming->count() > 0)
+        <section id="events" class="py-5" data-aos="fade-up">
+            <h2 class="fw-bold text-center mb-4">Upcoming Activities</h2>
 
-        <div class="row g-4">
-            <div class="col-md-4">
-                <div class="card p-3 h-100">
-                    <h5 class="fw-bold">Youth Leadership Camp</h5>
-                    <p style="color: #d9d2d2f1">
-                        A 3-day leadership training for young leaders.
-                    </p>
-                </div>
-            </div>
+            <div class="row g-4">
+                @foreach ($upcoming as $event)
+                    <div class="col-md-4">
+                        <div class="card p-3 h-100">
 
-            <div class="col-md-4">
-                <div class="card p-3 h-100">
-                    <h5 class="fw-bold">Community Outreach</h5>
-                    <p style="color: #d9d2d2f1">
-                        Giving back through volunteer programs.
-                    </p>
-                </div>
-            </div>
+                            {{-- Event Images (optional) --}}
+                            @if ($event->images && count($event->images) > 0)
+                                <img src="{{ asset('storage/' . $event->images[0]) }}" class="img-fluid mb-3"
+                                    style="height:200px; object-fit:cover;" alt="Event Image">
+                            @endif
 
-            <div class="col-md-4">
-                <div class="card p-3 h-100">
-                    <h5 class="fw-bold">Youth Forum</h5>
-                    <p style="color: #d9d2d2f1">
-                        A safe space for youth voices and ideas.
-                    </p>
-                </div>
+                            <h5 class="fw-bold">{{ $event->title }}</h5>
+                            <p style="color: #d9d2d2f1">{{ $event->description }}</p>
+                            @if ($event->link)
+                                <a href="{{ $event->link }}" class="btn btn-accent mt-2" target="_blank">Join Now</a>
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
+
+
 
     <section class="text-center py-5" data-aos="zoom-in">
         <h2 class="fw-bold mb-3">

@@ -10,7 +10,7 @@
         <div class="mb-3">
             {{-- <i class="fa-solid fa-people-group fa-3x text-success"></i> --}}
         </div>
-        <h1 class="fw-bold display-6 mb-2">About <span style="color: var(--highlight)">{{ config('app.name') }}</span></h1>
+        <h1 class="fw-bold display-6 mb-2">About <span style="color: var(--highlight)">Amoa Youth</span></h1>
         <p class="text-muted mx-auto" style="max-width: 720px;">
             Empowering youth to lead, serve, and grow together for a better community.
         </p>

@@ -169,7 +169,7 @@
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ asset('logo/logo.png') }}" alt="{{ config('app.name', 'AYO') }}" class="img-fluid"
                     style="max-height: 65px; width: 58px;">
-                {{ config('app.name') }}<span> ORG</span>
+                AMOA YOUTH <span> ORG</span>
             </a>
 
             <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse"

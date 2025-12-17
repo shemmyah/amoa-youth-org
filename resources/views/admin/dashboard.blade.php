@@ -113,7 +113,7 @@
                                                     </div>
                                                     <div class="mb-3">
                                                         <label class="form-label">Link (optional)</label>
-                                                        <input type="url" name="link" class="form-control"
+                                                        <input type="text" name="link" class="form-control"
                                                             value="{{ $event->link }}">
                                                     </div>
                                                     <div class="mb-3">

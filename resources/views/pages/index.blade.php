@@ -3,49 +3,97 @@
 @section('title', 'Home')
 
 @section('content')
-    <section class="text-center py-5" data-aos="fade-up">
-        <h1 class="fw-bold display-5">
+    <section class="py-5 text-center position-relative overflow-hidden" data-aos="fade-up">
+
+    {{-- subtle background accent --}}
+    <div class="position-absolute top-0 start-50 translate-middle-x"
+        style="width: 120%; height: 70%;">
+    </div>
+
+    <div class="container">
+
+        {{-- headline --}}
+        <h1 class="fw-bold display-4 mt-3" style="color: #2c3e50;">
             Empowering the <span style="color: var(--highlight)">Youth</span><br>
-            To Lead, Serve, and Inspire
+            To <span class="text-decoration-underline">Lead</span>,
+            <span class="text-decoration-underline">Serve</span>, and
+            <span class="text-decoration-underline">Inspire</span>
         </h1>
 
-        <p class="mt-4 fs-5 text-muted">
-            A youth organization dedicated to building leadership, community service,
-            and meaningful connections.
+        {{-- description --}}
+        <p class="mt-4 fs-5 mx-auto" style="max-width: 720px; color: #4b5563;">
+            A youth-led organization dedicated to developing leadership,
+            strengthening communities, and creating meaningful connections.
         </p>
 
-        <div class="mt-4">
-            <a href="{{ route('about') }}" class="btn btn-accent btn-lg me-2">Learn More</a>
-            <a href="{{ route('events') }}" class="btn btn-outline-dark btn-lg">Our Events</a>
+        {{-- single CTA button --}}
+        <div class="mt-5">
+            <a href="{{ route('events') }}" class="btn btn-accent btn-lg px-5">
+                Explore Events
+            </a>
         </div>
-    </section>
 
-    <section id="about" class="py-5" data-aos="fade-up">
-        <div class="row align-items-center">
-            <div class="col-md-6">
-                <h2 class="fw-bold mb-3">Who We Are</h2>
-                <p>
-                    We are a youth-led organization committed to empowering young people
-                    through leadership programs, community outreach, and meaningful events.
-                </p>
-                <p>
-                    Our goal is to create a safe space where the youth can grow, learn,
-                    and make a positive impact in society.
-                </p>
-            </div>
-            <div class="col-md-6 text-center">
-                <div class="position-relative d-inline-block">
-                    <img src="{{ asset('images/team.jpg') }}" alt="amoa youth" class="img-fluid rounded shadow-lg" style="max-height: 400px; object-fit: cover; border: 5px solid #f0f0f0;" data-aos="fade-left" data-aos-duration="900">
+    </div>
+</section>
 
-                    <div class="position-absolute bottom-0 start-50 translate-middle text-white fw-bold fs-4"
-                        style="text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">
-                        Meet Our Team
+
+    <section id="about" class="py-3 position-relative" data-aos="fade-up">
+
+        {{-- soft background accent --}}
+        <div class="position-absolute top-0 start-0 w-100 h-100"
+            style="background: linear-gradient(180deg, rgba(182,206,180,0.20), transparent); z-index: -1; border-radius: 10px;">
+        </div>
+
+        <div class="container">
+            <div class="row align-items-center g-5">
+
+                {{-- TEXT --}}
+                <div class="col-md-6 px-5" data-aos="fade-right" data-aos-duration="900">
+                    {{-- <span class="text-uppercase fw-semibold small" style="color: var(--highlight)">
+                        About Us
+                    </span> --}}
+
+                    <h2 class="fw-bold mb-3 fs-1" style="color: #2c3e50;">
+                        Who We Are
+                    </h2>
+
+                    <p class="fs-5" style="color: #4b5563;">
+                        We are a youth-led organization committed to empowering young people
+                        through leadership programs, community outreach, and meaningful events.
+                    </p>
+
+                    <p class="text-muted">
+                        Our goal is to create a safe space where the youth can grow, learn,
+                        and make a positive impact in society.
+                    </p>
+
+                    <a href="{{ route('about') }}" class="btn btn-accent mt-3">
+                        Learn More About Us
+                    </a>
+                </div>
+
+                {{-- IMAGE --}}
+                <div class="col-md-6 text-center p-5" data-aos="fade-left" data-aos-duration="900">
+                    <div class="position-relative d-inline-block">
+
+                        {{-- image --}}
+                        <img src="{{ asset('images/team.jpg') }}" alt="amoa youth" class="img-fluid rounded-4 shadow-lg"
+                            style="max-height: 420px; object-fit: cover;">
+
+                        {{-- overlay badge --}}
+                        <div class="position-absolute bottom-0 start-50 translate-middle-x mb-3
+                                px-4 py-2 rounded-pill text-white"
+                            style="backdrop-filter: blur(4px);">
+                            Meet Our Team
+                        </div>
+
                     </div>
                 </div>
-            </div>
 
+            </div>
         </div>
     </section>
+
 
     <section class="py-5" data-aos="fade-up">
         <div class="row g-4">
@@ -94,7 +142,8 @@
 
                             {{-- Event Images (optional) --}}
                             @if ($event->images && count($event->images) > 0)
-                                <img src="{{ asset('storage/' . $event->images[0]) }}" class="img-fluid mb-3" style="height:200px; object-fit:cover;" alt="Event Image" >
+                                <img src="{{ asset('storage/' . $event->images[0]) }}" class="img-fluid mb-3"
+                                    style="height:200px; object-fit:cover;" alt="Event Image">
                             @endif
 
                             <h5 class="fw-bold">{{ $event->title }}</h5>
@@ -111,16 +160,34 @@
 
 
 
-    <section class="text-center py-5" data-aos="zoom-in">
-        <h2 class="fw-bold mb-3">
-            Be Part of the Change
-        </h2>
-        <p class="mb-4">
-            Join us and help shape a better future for the youth.
-        </p>
-        <a href="{{ route('contact') }}" class="btn btn-accent btn-lg">
-            Get Involved
-        </a>
-    </section>
+    <section class="py-5" style="background: linear-gradient(180deg, rgba(182,206,180,0.20), transparent); z-index: -1; border-radius: 10px;">
+    <div class="container">
+        <div class="row align-items-center justify-content-center">
+            {{-- Text Content --}}
+            <div class="col-lg-6 mb-4 mb-lg-0 text-start">
+                <h2 class="fw-bold display-5 mb-3" style="color: #2c3e50;">Be Part of the Change</h2>
+                <p class="fs-5 mb-4" style="color: #4b5563;">
+                    Take action and help shape a brighter future for the youth through leadership, service, and community engagement.
+                </p>
+                <a href="{{ route('contact') }}" class="btn btn-accent btn-lg px-5 fw-bold"
+                   style="transition: transform 0.3s, background-color 0.3s;"
+                   onmouseover="this.style.transform='translateY(-3px)'; this.style.backgroundColor='#ffffffcc';"
+                   onmouseout="this.style.transform='translateY(0)'; this.style.backgroundColor='#fff';">
+                    Get Involved
+                </a>
+            </div>
+
+            <div class="col-lg-4">
+                <div class="overflow-hidden rounded shadow-lg" style="width: 105%;">
+                    <img src="{{ asset('images/volunteer.jpg') }}" alt="Youth volunteering" 
+                         class="img-fluid" 
+                         style="object-fit: cover; object-position: center;">
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 
 @endsection

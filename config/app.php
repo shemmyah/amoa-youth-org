@@ -28,7 +28,7 @@ return [
 
     'env' => env('APP_ENV', 'production'),
 
-    'admin_code' => env('ADMIN_SECRET_CODE'),
+    // 'admin_code' => env('ADMIN_SECRET_CODE'),
 
 
     /*

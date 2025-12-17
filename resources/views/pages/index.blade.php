@@ -35,10 +35,8 @@
             </div>
             <div class="col-md-6 text-center">
                 <div class="position-relative d-inline-block">
-                    <img src="{{ asset('images/team.jpg') }}" alt="amoa youth" class="img-fluid rounded shadow-lg"
-                        style="max-height: 400px; object-fit: cover; border: 5px solid #f0f0f0;">
+                    <img src="{{ asset('images/team.jpg') }}" alt="amoa youth" class="img-fluid rounded shadow-lg" style="max-height: 400px; object-fit: cover; border: 5px solid #f0f0f0;" data-aos="fade-left" data-aos-duration="900">
 
-                    {{-- Optional overlay text --}}
                     <div class="position-absolute bottom-0 start-50 translate-middle text-white fw-bold fs-4"
                         style="text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">
                         Meet Our Team
@@ -96,8 +94,7 @@
 
                             {{-- Event Images (optional) --}}
                             @if ($event->images && count($event->images) > 0)
-                                <img src="{{ asset('storage/' . $event->images[0]) }}" class="img-fluid mb-3"
-                                    style="height:200px; object-fit:cover;" alt="Event Image">
+                                <img src="{{ asset('storage/' . $event->images[0]) }}" class="img-fluid mb-3" style="height:200px; object-fit:cover;" alt="Event Image" >
                             @endif
 
                             <h5 class="fw-bold">{{ $event->title }}</h5>

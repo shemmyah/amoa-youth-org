@@ -16,7 +16,7 @@ Route::get('/admin/login', function () {
 // Admin login authentication
 Route::post('/admin/login', function (Illuminate\Http\Request $request) {
 
-    if ($request->code === config('app.admin_code')) {
+    if ($request->code === config('admin.code')) {
         session(['is_admin' => true]);
         return redirect('/admin/dashboard');
     }

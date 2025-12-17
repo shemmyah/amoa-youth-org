@@ -60,6 +60,11 @@
             transform: scale(1.05);
         }
 
+        .navbar-toggler {
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+
         .nav-link {
             color: var(--accent) !important;
             font-weight: 500;
@@ -164,7 +169,7 @@
 <body>
 
     <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-md navbar-custom shadow-sm fixed-top" data-aos="fade-down">
+    <nav class="navbar navbar-expand-md navbar-custom navbar-dark shadow-sm fixed-top" data-aos="fade-down">
         <div class="container">
             <a class="navbar-brand" href="{{ url('/') }}">
                 <img src="{{ asset('logo/logo.png') }}" alt="{{ config('app.name', 'AYO') }}" class="img-fluid"

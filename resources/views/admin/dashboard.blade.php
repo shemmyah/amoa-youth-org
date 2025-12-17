@@ -123,7 +123,7 @@
                                                         @if ($event->images ?? false)
                                                             <div class="mt-2 d-flex flex-wrap gap-2">
                                                                 @foreach ($event->images as $img)
-                                                                    <img src="{{ asset('storage/' . $img) }}"
+                                                                    <img src="{{ 'storage/' . $img }}"
                                                                         alt="Event Image" class="img-thumbnail"
                                                                         style="width:80px; height:80px;">
                                                                 @endforeach

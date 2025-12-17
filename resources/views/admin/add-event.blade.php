@@ -65,7 +65,7 @@
                         {{-- Link --}}
                         <div class="mb-3">
                             <label class="form-label fw-semibold">Link for register (optional)</label>
-                            <input type="url" name="link" class="form-control" value="{{ old('link') }}">
+                            <input type="text" name="link" class="form-control" value="{{ old('link') }}">
                         </div>
 
                         {{-- Images --}}

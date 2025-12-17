@@ -20,10 +20,17 @@ class EventsController extends Controller
             'description' => 'required|string',
             'start_date' => 'required|date',
             'end_date' => 'nullable|date|after_or_equal:start_date',
-            'link' => 'nullable|url',
+            'link' => 'nullable|string|max:255',
             'images' => 'nullable|array|max:5',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
+
+        $link = trim($request->link);
+
+        if ($link && !preg_match('~^https?://~i', $link)) {
+            $link = 'https://' . $link;
+        }
+
 
         $base64Images = [];
 
@@ -62,10 +69,16 @@ class EventsController extends Controller
             'description' => 'required|string',
             'start_date' => 'required|date',
             'end_date' => 'nullable|date|after_or_equal:start_date',
-            'link' => 'nullable|url',
+            'link' => 'nullable|string|max:255',
             'images' => 'nullable|array|max:5',
             'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
+
+        $link = trim($request->link);
+
+        if ($link && !preg_match('~^https?://~i', $link)) {
+            $link = 'https://' . $link;
+        }
 
         $images = $event->images ?? [];
 

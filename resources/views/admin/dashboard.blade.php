@@ -58,9 +58,9 @@
                                     <td>
                                         @if ($event->link)
                                             <a href="{{ $event->link }}" target="_blank"
-                                                class="btn btn-sm btn-accent">Visit</a>
+                                                class="btn btn-sm btn-outline-light">Visit</a>
                                         @else
-                                            -
+                                            <p class="ps-3 d-inline-block">-</p>
                                         @endif
                                     </td>
                                     <td class="text-center">

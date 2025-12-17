@@ -15,44 +15,38 @@ class EventsController extends Controller
 
     public function store(Request $request)
     {
-        // Validate
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
             'start_date' => 'required|date',
             'end_date' => 'nullable|date|after_or_equal:start_date',
             'link' => 'nullable|url',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048', // each image max 2MB
+            'images' => 'nullable|array|max:5',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
-        // Create event
-        $event = new Event();
-        $event->title = $request->title;
-        $event->description = $request->description;
-        $event->start_date = $request->start_date;
-        $event->end_date = $request->end_date;
-        $event->link = $request->link;
-        $event->images = []; // initialize empty array
-        $event->save();
+        $base64Images = [];
 
-        // Handle images
         if ($request->hasFile('images')) {
-            $images = $request->file('images');
-            $storedImages = [];
-
-            foreach ($images as $img) {
-                if ($img && count($storedImages) < 5) { // limit to 5 images
-                    $path = $img->store('events', 'public');
-                    $storedImages[] = $path;
-                }
+            foreach ($request->file('images') as $image) {
+                $base64Images[] =
+                    'data:' . $image->getMimeType() . ';base64,' .
+                    base64_encode(file_get_contents($image->getRealPath()));
             }
-
-            $event->images = $storedImages;
-            $event->save();
         }
 
-        return redirect()->back()->with('success', 'Event added successfully!');
+        Event::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'link' => $request->link,
+            'images' => $base64Images,
+        ]);
+
+        return back()->with('success', 'Event added successfully!');
     }
+
 
 
     public function edit(Event $event)
@@ -69,26 +63,36 @@ class EventsController extends Controller
             'start_date' => 'required|date',
             'end_date' => 'nullable|date|after_or_equal:start_date',
             'link' => 'nullable|url',
-            'images.*' => 'nullable|image|mimes:jpeg,png,jpg,gif,webp|max:2048',
+            'images' => 'nullable|array|max:5',
+            'images.*' => 'image|mimes:jpeg,png,jpg,gif,webp|max:2048',
         ]);
 
-        $data = $request->only(['title', 'description', 'start_date', 'end_date', 'link']);
+        $images = $event->images ?? [];
 
         if ($request->hasFile('images')) {
-            $images = $event->images ?? [];
-            foreach ($request->file('images') as $img) {
+            foreach ($request->file('images') as $image) {
                 if (count($images) >= 5)
                     break;
-                $path = $img->store('events', 'public');
-                $images[] = $path;
+
+                $images[] =
+                    'data:' . $image->getMimeType() . ';base64,' .
+                    base64_encode(file_get_contents($image->getRealPath()));
             }
-            $data['images'] = $images;
         }
 
-        $event->update($data);
+        $event->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'start_date' => $request->start_date,
+            'end_date' => $request->end_date,
+            'link' => $request->link,
+            'images' => $images,
+        ]);
 
-        return redirect()->route('admin.dashboard')->with('success', 'Event updated successfully.');
+        return redirect()->route('admin.dashboard')
+            ->with('success', 'Event updated successfully.');
     }
+
 
 
     // Delete event

@@ -32,7 +32,7 @@
                                     <div class="carousel-inner">
                                         @foreach ($event->images as $key => $img)
                                             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                                <img src="{{ asset('storage/' . $img) }}" class="d-block w-100"
+                                                <img src="{{ $img }}" class="d-block w-100"
                                                     style="height:200px; object-fit:cover;" alt="Event Image">
                                             </div>
                                         @endforeach
@@ -50,7 +50,7 @@
                                 </div>
                             @else
                                 {{-- Single image --}}
-                                <img src="{{ asset('storage/' . $event->images[0]) }}" class="img-fluid mb-3"
+                                <img src="{{ $event->images[0] }}" class="img-fluid mb-3"
                                     style="height:200px; object-fit:cover;" alt="Event Image">
                             @endif
                         @endif
@@ -90,7 +90,7 @@
                                     <div class="carousel-inner">
                                         @foreach ($event->images as $key => $img)
                                             <div class="carousel-item {{ $key == 0 ? 'active' : '' }}">
-                                                <img src="{{ asset('storage/' . $img) }}" class="d-block w-100"
+                                                <img src="{{ $img }}" class="d-block w-100"
                                                     style="height:200px; object-fit:cover;" alt="Event Image">
                                             </div>
                                         @endforeach
@@ -107,7 +107,7 @@
                                     </button>
                                 </div>
                             @else
-                                <img src="{{ asset('storage/' . $event->images[0]) }}" class="img-fluid mb-3"
+                                <img src="{{ $event->images[0] }}" class="img-fluid mb-3"
                                     style="height:200px; object-fit:cover;" alt="Event Image">
                             @endif
                         @endif

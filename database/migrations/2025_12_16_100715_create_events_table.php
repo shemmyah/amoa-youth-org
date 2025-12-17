@@ -18,7 +18,7 @@ return new class extends Migration
             $table->dateTime('start_date');
             $table->dateTime('end_date')->nullable();
             $table->string('link')->nullable();
-            $table->json('images')->nullable();
+            $table->longText('images')->nullable();
             $table->timestamps();
         });
     }

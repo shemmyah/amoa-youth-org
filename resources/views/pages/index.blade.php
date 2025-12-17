@@ -142,7 +142,7 @@
 
                             {{-- Event Images (optional) --}}
                             @if ($event->images && count($event->images) > 0)
-                                <img src="{{ asset('storage/' . $event->images[0]) }}" class="img-fluid mb-3"
+                                <img src="{{ $event->images[0] }}" class="img-fluid mb-3"
                                     style="height:200px; object-fit:cover;" alt="Event Image">
                             @endif
 

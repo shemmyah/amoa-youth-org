@@ -64,6 +64,8 @@ class EventsController extends Controller
     // Update event
     public function update(Request $request, Event $event)
     {
+        // dd($request->all());
+
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
@@ -98,7 +100,7 @@ class EventsController extends Controller
             'description' => $request->description,
             'start_date' => $request->start_date,
             'end_date' => $request->end_date,
-            'link' => $request->link,
+            'link' => $link,
             'images' => $images,
         ]);
 

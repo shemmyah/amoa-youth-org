@@ -32,15 +32,15 @@
 
                 <div class="d-flex gap-4 mb-4">
                     <div>
-                        <h3 class="fw-bold mb-0" style="color: var(--primary);">5+</h3>
+                        <h3 class="fw-bold mb-0" style="color: var(--primary);">2</h3>
                         <small class="text-muted">Years Active</small>
                     </div>
                     <div>
-                        <h3 class="fw-bold mb-0" style="color: var(--primary);">500+</h3>
+                        <h3 class="fw-bold mb-0" style="color: var(--primary);">10+</h3>
                         <small class="text-muted">Members</small>
                     </div>
                     <div>
-                        <h3 class="fw-bold mb-0" style="color: var(--primary);">50+</h3>
+                        <h3 class="fw-bold mb-0" style="color: var(--primary);">2+</h3>
                         <small class="text-muted">Events</small>
                     </div>
                 </div>
